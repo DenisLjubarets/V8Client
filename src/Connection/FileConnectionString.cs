@@ -20,7 +20,7 @@ namespace V8Client
             builder.Append($"File={File};");
             if (!string.IsNullOrWhiteSpace(Locale)) builder.Append($"Locale={Locale};");
             if (!string.IsNullOrWhiteSpace(DBFormat)) builder.Append($"Locale={DBFormat};");
-            builder.Append($"DBPageSize={DBPageSize};");
+            builder.Append($"DBPageSize={(int)DBPageSize};");
             return builder.ToString().Trim();
         }
     }
