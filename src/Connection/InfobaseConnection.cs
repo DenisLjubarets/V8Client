@@ -3,7 +3,6 @@
     public class InfobaseConnection : IConnection
     {
         public string InfobaseName { get; set; }
-
-        public string ConnectionArguments { get { return $@"/IBName ""{InfobaseName}"""; } }
+        public string ConnectionArguments => $@"/IBName ""{InfobaseName}"" ";
     }
 }
