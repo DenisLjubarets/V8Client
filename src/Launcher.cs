@@ -4,18 +4,18 @@ namespace V8Client
 {
     public class Launcher
     {
-        private readonly string clientPath;
+        private readonly string clientFile;
 
-        public Launcher(string clientPath)
+        public Launcher(string clientFile)
         {
-            this.clientPath = clientPath;
+            this.clientFile = clientFile;
         }
 
         public void Launch(ILauncherParameters parameters)
         {
             Process.Start(new ProcessStartInfo
             {
-                FileName = clientPath,
+                FileName = clientFile,
                 Arguments = parameters.GenerateArguments()
             });
         }

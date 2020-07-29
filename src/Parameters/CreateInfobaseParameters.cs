@@ -2,8 +2,9 @@
 
 namespace V8Client
 {
-    public abstract class CreateInfobaseParameters : CommonParameters
+    public class CreateInfobaseParameters : CommonParameters
     {
+        public new ConnectionString Connection { get; set; }
         public string TemplateFile { get; set; }
         public string DumpResultFile { get; set; }
         public string AddToListWithName { get; set; }
@@ -15,7 +16,7 @@ namespace V8Client
             if (!string.IsNullOrWhiteSpace(TemplateFile)) builder.Append($@"/UseTemplate ""{TemplateFile}"" ");
             if (!string.IsNullOrWhiteSpace(DumpResultFile)) builder.Append($@"/DumpResult ""{DumpResultFile}"" ");
             if (!string.IsNullOrWhiteSpace(AddToListWithName)) builder.Append($@"/AddToList ""{AddToListWithName}"" ");
-            return builder.ToString() + base.GenerateArguments();
+            return (builder.ToString() + base.GenerateArguments()).Trim();
         }
     }
 }

@@ -2,7 +2,7 @@
 {
     public class FileConnection : IConnection
     {
-        public string InfobaseDirectory { get; set; }
-        public string ConnectionArguments => $@"/F ""{InfobaseDirectory}"" ";
+        public string Directory { get; set; }
+        public string ConnectionArguments => $@"/F ""{Directory}""";
     }
 }

@@ -2,7 +2,7 @@
 
 namespace V8Client
 {
-    public abstract class DesignerParameters : CommonParameters
+    public class DesignerParameters : CommonParameters
     {
         public string InfobaseUpdateFile { get; set; }
         public string InfobaseBackupFile { get; set; }
@@ -18,9 +18,9 @@ namespace V8Client
             if (!string.IsNullOrWhiteSpace(InfobaseUpdateFile)) builder.Append($@"/UpdateCfg ""{InfobaseUpdateFile}"" /UpdateDBCfg ");
             if (!string.IsNullOrWhiteSpace(InfobaseBackupFile)) builder.Append($@"/DumpIB ""{InfobaseBackupFile}"" ");
             if (!string.IsNullOrWhiteSpace(InfobaseRestoreFile)) builder.Append($@"/RestoreIB ""{InfobaseRestoreFile}"" ");
-            if (!string.IsNullOrWhiteSpace(ConfigurationImportFile)) builder.Append($@"/DumpCfg ""{ConfigurationImportFile}"" ");
-            if (!string.IsNullOrWhiteSpace(ConfigurationExportFile)) builder.Append($@"/LoadCfg ""{ConfigurationExportFile}"" ");
-            return builder.ToString() + base.GenerateArguments();
+            if (!string.IsNullOrWhiteSpace(ConfigurationImportFile)) builder.Append($@"/LoadCfg ""{ConfigurationImportFile}"" ");
+            if (!string.IsNullOrWhiteSpace(ConfigurationExportFile)) builder.Append($@"/DumpCfg ""{ConfigurationExportFile}"" ");
+            return (builder.ToString() + base.GenerateArguments()).Trim();
         }
     }
 }
